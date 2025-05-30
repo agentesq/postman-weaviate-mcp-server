@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env*
+
+#Script files
+fix-all-syntax.js
+fix-headers.js
+fix-shard-status.js
+index.js
+test-connection.js
+test-imports.js
+test-weaviate-queries.js

@@ -1,0 +1,28 @@
+version: 1
+project:
+  name: postman-weaviate-mcp-server
+  description: A Model Context Protocol server for Weaviate integration
+
+build:
+  dockerfile: Dockerfile
+  context: .
+  
+deploy:
+  port: 3001
+  healthCheck:
+    path: /sse
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 5
+    successThreshold: 1
+    failureThreshold: 3
+  
+  environment:
+    - name: NODE_ENV
+      value: production
+    - name: PORT
+      value: "3001"
+
+resources:
+  cpu: 0.1
+  memory: 256Mi

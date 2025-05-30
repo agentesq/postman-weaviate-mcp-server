@@ -6,17 +6,10 @@ project:
 build:
   dockerfile: Dockerfile
   context: .
-  
+
 deploy:
   port: 3001
-  healthCheck:
-    path: /sse
-    initialDelaySeconds: 5
-    periodSeconds: 10
-    timeoutSeconds: 5
-    successThreshold: 1
-    failureThreshold: 3
-  
+  command: ["node", "mcpServer.js", "--sse"]
   environment:
     - name: NODE_ENV
       value: production

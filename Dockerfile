@@ -1,18 +1,20 @@
-FROM node:18-alpine AS builder
+FROM node:18-alpine
 
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
 
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy application code
 COPY . .
 
-FROM node:18-alpine AS runtime
-WORKDIR /app
-COPY --from=builder /app .
-
+# Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3001
 
+# Expose the port
 EXPOSE 3001
 
+# Start the application
 CMD ["node", "mcpServer.js", "--sse"]

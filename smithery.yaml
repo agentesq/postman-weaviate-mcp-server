@@ -1,21 +1,18 @@
-version: 1
-project:
-  name: postman-weaviate-mcp-server
-  description: A Model Context Protocol server for Weaviate integration
-
-build:
-  dockerfile: Dockerfile
-  context: .
-
-deploy:
-  port: 3001
-  command: ["node", "mcpServer.js"]
-  environment:
-    - name: NODE_ENV
-      value: production
-    - name: PORT
-      value: "3001"
-
-resources:
-  cpu: 0.1
-  memory: 256Mi
+# Smithery.ai configuration
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    {}
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({
+      "command": "node",
+      "args": [
+        "mcpServer.js"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    })

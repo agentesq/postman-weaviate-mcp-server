@@ -2,8 +2,10 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy package files
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
 # Copy application code
@@ -14,8 +16,8 @@ ENV NODE_ENV=production
 ENV PORT=3001
 ENV MCP_TRANSPORT=stdio
 
-# Expose the port (still helpful for local development)
+# Expose the port (for documentation only)
 EXPOSE 3001
 
 # Command will be provided by smithery.yaml
-CMD ["npm", "start"]
+CMD ["node", "mcpServer.js"]

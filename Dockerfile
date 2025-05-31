@@ -17,4 +17,4 @@ ENV PORT=3001
 EXPOSE 3001
 
 # Start the application
-CMD ["node", "mcpServer.js", "--sse"]
+CMD ["node", "mcpServer.js"]

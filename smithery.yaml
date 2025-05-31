@@ -9,7 +9,7 @@ build:
 
 deploy:
   port: 3001
-  command: ["node", "mcpServer.js", "--sse"]
+  command: ["node", "mcpServer.js"]
   environment:
     - name: NODE_ENV
       value: production

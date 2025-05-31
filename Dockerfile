@@ -11,11 +11,6 @@ RUN npm install
 # Copy application code
 COPY . .
 
-# Set environment variables
-ENV NODE_ENV=production
-ENV PORT=3001
-ENV MCP_TRANSPORT=stdio
-
 # Expose the port (for documentation only)
 EXPOSE 3001
 

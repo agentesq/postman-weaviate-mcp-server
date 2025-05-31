@@ -12,9 +12,10 @@ COPY . .
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3001
+ENV MCP_TRANSPORT=stdio
 
-# Expose the port
+# Expose the port (still helpful for local development)
 EXPOSE 3001
 
-# Start the application
-CMD ["node", "mcpServer.js"]
+# Command will be provided by smithery.yaml
+CMD ["npm", "start"]

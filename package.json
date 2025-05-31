@@ -2,10 +2,12 @@
   "name": "postman-mcp-generator-mcp",
   "version": "1.0.0",
   "description": "A simple MCP server with packaged tools",
-  "main": "index.js",
+  "main": "mcpServer.js",
   "type": "module",
   "scripts": {
-    "list-tools": "node index.js tools"
+    "list-tools": "node index.js tools",
+    "start": "node mcpServer.js",
+    "build": "echo 'No build step required'"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
